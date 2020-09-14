@@ -303,7 +303,7 @@ namespace Ecommerce.Domain.Migrations
 
                     b.HasIndex("TransactionHistoryId");
 
-                    b.ToTable("HistoryDetail");
+                    b.ToTable("HistoryDetails");
                 });
 
             modelBuilder.Entity("Ecommerce.Domain.Models.Language", b =>

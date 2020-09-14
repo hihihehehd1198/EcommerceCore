@@ -610,7 +610,7 @@ namespace Ecommerce.Domain.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "HistoryDetail",
+                name: "HistoryDetails",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
@@ -627,15 +627,15 @@ namespace Ecommerce.Domain.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_HistoryDetail", x => x.Id);
+                    table.PrimaryKey("PK_HistoryDetails", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_HistoryDetail_Products_ProductId",
+                        name: "FK_HistoryDetails_Products_ProductId",
                         column: x => x.ProductId,
                         principalTable: "Products",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_HistoryDetail_TransactionHistories_TransactionHistoryId",
+                        name: "FK_HistoryDetails_TransactionHistories_TransactionHistoryId",
                         column: x => x.TransactionHistoryId,
                         principalTable: "TransactionHistories",
                         principalColumn: "Id",
@@ -678,13 +678,13 @@ namespace Ecommerce.Domain.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_HistoryDetail_ProductId",
-                table: "HistoryDetail",
+                name: "IX_HistoryDetails_ProductId",
+                table: "HistoryDetails",
                 column: "ProductId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_HistoryDetail_TransactionHistoryId",
-                table: "HistoryDetail",
+                name: "IX_HistoryDetails_TransactionHistoryId",
+                table: "HistoryDetails",
                 column: "TransactionHistoryId");
 
             migrationBuilder.CreateIndex(
@@ -790,7 +790,7 @@ namespace Ecommerce.Domain.Migrations
                 name: "Configs");
 
             migrationBuilder.DropTable(
-                name: "HistoryDetail");
+                name: "HistoryDetails");
 
             migrationBuilder.DropTable(
                 name: "OrderDetails");
