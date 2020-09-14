@@ -27,6 +27,7 @@ namespace Ecommerce.Domain
         public DbSet<ProductRating> ProductRatings { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<TransactionHistory> TransactionHistories { get; set; }
+        public DbSet<HistoryDetail> HistoryDetails { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<UserProfile> UserProfiles { get; set; }
     }

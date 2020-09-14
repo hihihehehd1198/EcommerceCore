@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Ecommerce.Domain.Migrations
 {
     [DbContext(typeof(EcommerceDbContext))]
-    [Migration("20200910130853_InitDatabase")]
+    [Migration("20200914155726_InitDatabase")]
     partial class InitDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -305,7 +305,7 @@ namespace Ecommerce.Domain.Migrations
 
                     b.HasIndex("TransactionHistoryId");
 
-                    b.ToTable("HistoryDetail");
+                    b.ToTable("HistoryDetails");
                 });
 
             modelBuilder.Entity("Ecommerce.Domain.Models.Language", b =>

@@ -4,30 +4,4 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Include="obj\Debug\netcoreapp3.1\.NETCoreApp,Version=v3.1.AssemblyAttributes.cs" />
-    <Compile Include="obj\Debug\netcoreapp3.1\Ecommerce.Service.AssemblyInfo.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="obj\Ecommerce.Service.csproj.nuget.dgspec.json" />
-    <Content Include="obj\project.assets.json" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="obj\Debug\netcoreapp3.1\Ecommerce.Service.AssemblyInfoInputs.cache" />
-    <None Include="obj\Debug\netcoreapp3.1\Ecommerce.Service.assets.cache" />
-    <None Include="obj\Debug\netcoreapp3.1\Ecommerce.Service.csprojAssemblyReference.cache" />
-    <None Include="obj\Ecommerce.Service.csproj.nuget.g.props" />
-    <None Include="obj\Ecommerce.Service.csproj.nuget.g.targets" />
-    <None Include="obj\project.nuget.cache" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="bin\Debug\netcoreapp3.1\" />
-    <Folder Include="Dto\" />
-    <Folder Include="Interface\" />
-    <Folder Include="Services\" />
-  </ItemGroup>
-
 </Project>
