@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace Ecommerce.Repository
 {
-    public class OrdersReponsitory : BaseRepository<Orders>, IOrdersRepository
+    public class TransactionHistoryRepository : BaseRepository<TransactionHistory>, ITransactionHistoryRepository
     {
-        public OrdersReponsitory(EcommerceDbContext dbContext) : base(dbContext)
+        public TransactionHistoryRepository(EcommerceDbContext dbContext) : base(dbContext)
         {
 
         }
-        public Task<ICollection<Orders>> GetOrdersParrent()
+        public Task<ICollection<TransactionHistory>> GetOrdersParrent()
         {
             throw new NotImplementedException();
         }

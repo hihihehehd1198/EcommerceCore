@@ -13,9 +13,13 @@ namespace Ecommerce.Domain.Models
         [Required]
         [MaxLength(256)]
         public string UserName { get; set; }
+        [MaxLength(256)]
+        public string FirstName { get; set; }
+        [MaxLength(256)]
+        public string LastName { get; set; }
         public DateTime LastLoginDate { get; set; }
-        public byte PassWordHash { get; set; }
-        public byte PassWordSalt { get; set; }
+        public byte[] PassWordHash { get; set; }
+        public byte[] PassWordSalt { get; set; }
 
 
         #region RelationShip

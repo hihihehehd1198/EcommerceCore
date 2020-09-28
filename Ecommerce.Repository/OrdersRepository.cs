@@ -3,19 +3,17 @@ using Ecommerce.Domain.Models;
 using Ecommerce.Repository.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Ecommerce.Repository
 {
-    public class CartReponsitory:BaseRepository<Cart>,ICartRepository
+    public class OrdersRepository : BaseRepository<Orders>, IOrdersRepository
     {
-        public CartReponsitory(EcommerceDbContext dbContext) : base(dbContext)
+        public OrdersRepository(EcommerceDbContext dbContext) : base(dbContext)
         {
 
         }
-
-        public Task<ICollection<Cart>> GetCartParrent()
+        public Task<ICollection<Orders>> GetOrdersParrent()
         {
             throw new NotImplementedException();
         }
