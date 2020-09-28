@@ -994,6 +994,10 @@ namespace Ecommerce.Domain.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256);
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
@@ -1003,11 +1007,15 @@ namespace Ecommerce.Domain.Migrations
                     b.Property<DateTime>("LastLoginDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<byte>("PassWordHash")
-                        .HasColumnType("tinyint");
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256);
 
-                    b.Property<byte>("PassWordSalt")
-                        .HasColumnType("tinyint");
+                    b.Property<byte[]>("PassWordHash")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<byte[]>("PassWordSalt")
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<Guid>("RoleId")
                         .HasColumnType("uniqueidentifier");

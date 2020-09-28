@@ -154,9 +154,11 @@ namespace Ecommerce.Domain.Migrations
                     IsDeleted = table.Column<bool>(nullable: false),
                     Status = table.Column<int>(nullable: false),
                     UserName = table.Column<string>(maxLength: 256, nullable: false),
+                    FirstName = table.Column<string>(maxLength: 256, nullable: true),
+                    LastName = table.Column<string>(maxLength: 256, nullable: true),
                     LastLoginDate = table.Column<DateTime>(nullable: false),
-                    PassWordHash = table.Column<byte>(nullable: false),
-                    PassWordSalt = table.Column<byte>(nullable: false),
+                    PassWordHash = table.Column<byte[]>(nullable: true),
+                    PassWordSalt = table.Column<byte[]>(nullable: true),
                     RoleId = table.Column<Guid>(nullable: false),
                     LanguageId = table.Column<Guid>(nullable: true)
                 },
