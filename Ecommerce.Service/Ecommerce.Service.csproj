@@ -5,10 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Dto\" />
-    <Folder Include="Interfaces\" />
-    <Folder Include="ViewModels\" />
-    <Folder Include="Services\" />
+    <Compile Remove="Interfaces\**" />
+    <EmbeddedResource Remove="Interfaces\**" />
+    <None Remove="Interfaces\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Ecommerce.Domain\Ecommerce.Domain.csproj" />
+    <ProjectReference Include="..\Ecommerce.Repository\Ecommerce.Repository.csproj" />
   </ItemGroup>
 
 </Project>

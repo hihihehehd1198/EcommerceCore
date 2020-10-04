@@ -9,6 +9,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Ecommerce.Repository;
+using Ecommerce.Repository.Interfaces;
+using Ecommerce.Service.Interface;
+using Ecommerce.Service.Services;
+
 
 namespace EcommerceCore
 {
@@ -51,6 +56,19 @@ namespace EcommerceCore
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+        }
+
+        private void ConfigureCoreAndRepositoryService(IServiceCollection services)
+        {
+            services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
+            services.AddScoped(typeof(IServices<>), typeof(EcommerceServices<>));
+
+            services.AddScoped<ICartRepository, CartRepository>();
+            services.AddScoped<ICartServices, CartService>();
+
+
+            //services.AddScoped<IRoleReponsitory, RoleReponsitory>();
+            //services.AddScoped<IRoleServices, RoleService>();
         }
     }
 }
