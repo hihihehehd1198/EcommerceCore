@@ -186,7 +186,7 @@
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
-        with font-awesome or any other icon font library -->
+                        with font-awesome or any other icon font library -->
                         <li class="nav-item ">
                             <a class="nav-link active" asp-controller="Dashboard" asp-action="Index">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -196,26 +196,61 @@
                             </a>
                         </li>
                         <!-- <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
-                <i class="nav-icon fas fa-th"></i>
-                <p>
-                    Widgets
-                    <span class="right badge badge-danger">New</span>
-                </p>
-            </a>
-        </li> -->
+                            <a href="pages/widgets.html" class="nav-link">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    Widgets
+                                    <span class="right badge badge-danger">New</span>
+                                </p>
+                            </a>
+                        </li> -->
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-copy"></i>
+                                <p>
+                                    Đơn Hàng
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a class="nav-link">
+                                        <i class="far fa-circle nav-icon "></i>
+                                        <p>Tạo đơn và giao hàng</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a class="nav-link ">
+                                        <i class="far fa-circle nav-icon "></i>
+                                        <p>Danh sách đơn hàng</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a class="nav-link ">
+                                        <i class="far fa-circle nav-icon "></i>
+                                        <p>Khách trả hàng</p>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
                         <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-copy"></i>
                                 <p>
                                     Nhà Sản Xuất
                                     <i class="fas fa-angle-left right"></i>
-                                    <span class="badge badge-info right">6</span>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a class="nav-link " asp-controller="Dashboard" asp-action="Index">
+                                    <a class="nav-link">
+                                        <i class="far fa-circle nav-icon "></i>
+                                        <p>DS Nhà Sản Xuất</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link">
                                         <i class="far fa-circle nav-icon "></i>
                                         <p>Thêm Nhà Sản Xuất</p>
                                     </a>
@@ -246,6 +281,12 @@
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a class="nav-link">
+                                        <i class="far fa-circle nav-icon "></i>
+                                        <p>DS Danh Mục</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Thêm Danh Mục</p>
                                     </a>
@@ -273,6 +314,12 @@
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a class="nav-link">
+                                        <i class="far fa-circle nav-icon "></i>
+                                        <p>DS Sản Phẩm</p>
+                                    </a>
+                                </li>
                                 <li class="nav-item">
                                     <a class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
@@ -305,6 +352,12 @@
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a class="nav-link">
+                                        <i class="far fa-circle nav-icon "></i>
+                                        <p>DS Người Dùng</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Thêm Người Dùng</p>
                                     </a>
@@ -328,7 +381,7 @@
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-table"></i>
                                 <p>
-                                    Báo Cáo
+                                    Tiện ích
                                     <i class="fas fa-angle-left right"></i>
                                 </p>
                             </a>
@@ -340,7 +393,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a  class="nav-link">
+                                    <a class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Tổng Doanh Thu Trong Ngày</p>
                                     </a>
@@ -641,7 +694,7 @@
         </aside>
 
         <div class="content-wrapper">
-                @RenderBody()
+            @RenderBody()
         </div>
 
         <footer class="main-footer">
@@ -659,13 +712,12 @@
         <!-- /.control-sidebar -->
     </div>
     <!-- ./wrapper -->
-
     @*<script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>*@
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>*@
 
 
-    
+
     <!-- jQuery UI 1.11.4 -->
     <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
