@@ -20,4 +20,8 @@
     <ProjectReference Include="..\Ecommerce.Service\Ecommerce.Service.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\themes\less\oregional\" />
+  </ItemGroup>
+
 </Project>
