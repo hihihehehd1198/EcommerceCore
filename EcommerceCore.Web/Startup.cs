@@ -61,7 +61,7 @@ namespace EcommerceCore
         private void ConfigureCoreAndRepositoryService(IServiceCollection services)
         {
             services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
-            services.AddScoped(typeof(IServices<>), typeof(EcommerceServices<>));
+            services.AddScoped(typeof(IServices<>), typeof(ConfigService<>));
 
             services.AddScoped<ICartRepository, CartRepository>();
             services.AddScoped<ICartServices, CartService>();
