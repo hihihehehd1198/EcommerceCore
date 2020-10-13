@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Ecommerce.Service.Interface
 {
-    public interface IOrderServices:IServices<Orders>
+    public interface IOrderServices:IServices<ProductRating>
     {
     }
 }
