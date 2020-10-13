@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Ecommerce.Service.Services
 {
-    public class CartService : EcommerceServices<Cart>, ICartServices
+    public class CartService : ConfigService<Cart>, ICartServices
     {
         private readonly ICartRepository _cartReponsitory;
 
