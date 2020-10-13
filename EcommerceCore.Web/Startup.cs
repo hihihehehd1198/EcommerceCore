@@ -1,4 +1,4 @@
-using Ecommerce.Domain;
+using EcommerceCore.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,7 +30,7 @@ namespace EcommerceCore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddDbContext<EcommerceDbContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
+            services.AddDbContext<DbContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -61,7 +61,7 @@ namespace EcommerceCore
         private void ConfigureCoreAndRepositoryService(IServiceCollection services)
         {
             services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
-            services.AddScoped(typeof(IServices<>), typeof(EcommerceServices<>));
+            services.AddScoped(typeof(IServices<>), typeof(ConfigService<>));
 
             services.AddScoped<ICartRepository, CartRepository>();
             services.AddScoped<ICartServices, CartService>();
