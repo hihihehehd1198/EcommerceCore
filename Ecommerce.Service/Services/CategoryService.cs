@@ -11,13 +11,11 @@ namespace Ecommerce.Service.Services
 {
     public class CategoryService : ConfigService<Category>, ICategoryService
     {
-        private readonly ICategoryReponsitory _categoryReponsitory;        
-        private readonly IMapper _mapper;
+        private readonly ICategoryReponsitory _categoryReponsitory;       
 
-        public CategoryService(ICategoryReponsitory categoryReponsitory, IMapper mapper) : base(categoryReponsitory)
+        public CategoryService(ICategoryReponsitory categoryReponsitory) : base(categoryReponsitory)
         {
             _categoryReponsitory = categoryReponsitory;           
-            _mapper = mapper;
         }
 
         public Task<CategoryViewModel> GetCategoryForHomepage()
@@ -27,8 +25,7 @@ namespace Ecommerce.Service.Services
 
         public async Task<ICollection<CategoryViewModel>> GetCategoryParrent()
         {
-            var category = await _categoryReponsitory.GetCategoryParrent();
-            return _mapper.Map<List<CategoryViewModel>>(category);
+            throw new System.NotImplementedException();
         }
     }
 }

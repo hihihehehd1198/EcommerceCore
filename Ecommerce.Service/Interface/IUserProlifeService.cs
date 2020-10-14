@@ -10,7 +10,6 @@ namespace Ecommerce.Service.Interface
 
         //IEnumerable<User> GetAll();
         //User GetById(int id);
-        void Update(UserProfile profile);
         void Create(UserProfile profile);
         void Delete(Guid id);
     }

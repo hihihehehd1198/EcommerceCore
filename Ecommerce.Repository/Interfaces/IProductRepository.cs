@@ -10,7 +10,8 @@ namespace Ecommerce.Repository.Interfaces
     {
         Task<List<Product>> GetProductByCategoryIdAndOrderByView(Guid categoryId);
         Task<bool> GrowUpViewByProductId(Guid productId);
-
+        // Lấy ra những sản phẩm hot trend (Lượt xem nhiều nhất và số lượng mua nhiều nhất)
+        
     } 
    
 }
