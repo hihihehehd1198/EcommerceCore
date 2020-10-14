@@ -30,7 +30,7 @@ namespace Ecommerce.Domain.Models
         public ICollection<Point> Points { get; set; }
         public ICollection<ProductRating> ProductRatings { get; set; }
         public ICollection<UserProfile> UserProfiles { get; set; }
-        public ICollection<TransactionHistory> Orders { get; set; }
+        public ICollection<Orders> Orders { get; set; }
         public ICollection<Cart> Carts { get; set; }
         public ICollection<TransactionHistory> TransactionHistories { get; set; }
         public ICollection<Comment> Comments { get; set; }

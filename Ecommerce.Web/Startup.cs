@@ -62,10 +62,10 @@ namespace Ecommerce.Web
         private void ConfigureCoreAndRepositoryService(IServiceCollection services)
         {
             services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
-            services.AddScoped(typeof(IServices<>), typeof(ConfigService<>));
+            services.AddScoped(typeof(IServices<>), typeof(EcommerceService<>));
             services.AddScoped<ICartRepository, CartRepository>();
             services.AddScoped<ICartServices, CartService>();
-            services.AddScoped<ICategoryReponsitory, CategoryReponsitory>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<ICategoryService, CategoryService>();
 
             //services.AddScoped<IRoleReponsitory, RoleReponsitory>();

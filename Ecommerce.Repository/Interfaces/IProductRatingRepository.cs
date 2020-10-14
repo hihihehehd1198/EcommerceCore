@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ecommerce.Repository.Interfaces
 {
-    public interface IProductRatingRespository: IRepository<ProductRating>
+    public interface IProductRatingRepository: IRepository<ProductRating>
     {
 
         Task<ICollection<ProductRating>> GetratingParrent();

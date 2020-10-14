@@ -9,14 +9,14 @@ using System.Text;
 
 namespace Ecommerce.Service.Services
 {
-    public class UserProfileService : Services<UserProfile>, IUserProfileService
+    public class UserProfileService : EcommerceService<UserProfile>, IUserProfileService
     {
-        private readonly IUserProfileRepository _userprofileReponsitory;
+        private readonly IUserProfileRepository _userprofileRepository;
         private readonly IMapper _mapper;
 
         public UserProfileService(IUserProfileRepository userProfileRepository, IMapper mapper) : base(userProfileRepository)
         {
-            _userprofileReponsitory = userProfileRepository;
+            _userprofileRepository = userProfileRepository;
             _mapper = mapper;
         }
 

@@ -10,10 +10,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Ecommerce.Repository
 {
-    public class CategoryReponsitory : BaseRepository<Category>, ICategoryReponsitory
+    public class CategoryRepository : BaseRepository<Category>, ICategoryRepository
     {
 
-        public CategoryReponsitory(EcommerceDbContext dbContext) : base(dbContext)
+        public CategoryRepository(EcommerceDbContext dbContext) : base(dbContext)
         {
         }
 

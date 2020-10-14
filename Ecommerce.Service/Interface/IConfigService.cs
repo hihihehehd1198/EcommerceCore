@@ -10,8 +10,8 @@ namespace Ecommerce.Service.Interface
     {
         //IEnumerable<User> GetAll();
         //User GetById(int id);
-        Config Create(Config config, string code, string value);
-        void Update(Config config, string code = null);
-        void Delete(Guid id);
+    //    Config Create(Config config, string code, string value);
+    //    void Update(Config config, string code = null);
+    //    void Delete(Guid id);
     }
 }

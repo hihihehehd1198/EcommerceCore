@@ -9,16 +9,15 @@ using Ecommerce.Service.Dto;
 using Ecommerce.Service.Interface;
 namespace Ecommerce.Service.Services
 {
-    public class ProductRatingService:Services<ProductRating>
+    public class ProductRatingService : EcommerceService<ProductRating>
     {
-        private readonly IProductRatingRespository _productratingReponsitory;
+        private readonly IProductRatingRepository _productratingRepository;
         private readonly IMapper _mapper;
 
-        public ProductRatingService(IProductRatingRespository productratingReponsitory, IMapper mapper) : base(productratingReponsitory)
+        public ProductRatingService(IProductRatingRepository productratingRepository, IMapper mapper) : base(productratingRepository)
         {
-            _productratingReponsitory = productratingReponsitory;
+            _productratingRepository = productratingRepository;
             _mapper = mapper;
-            this._productratingReponsitory = productratingReponsitory;
         }
     }
 }
