@@ -5,7 +5,7 @@ using System;
 using Ecommerce.Domain;
 using System.Linq;
 using Ecommerce.Repository.Interfaces;
-using Ecommerce.Common.Infrastructure.Helper;
+using EcommerceCommon.Infrastructure.Helper;
 
 namespace Ecommerce.Repository
 {
