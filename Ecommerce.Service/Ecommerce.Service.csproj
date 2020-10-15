@@ -11,12 +11,50 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Include="obj\Debug\netcoreapp3.1\.NETCoreApp,Version=v3.1.AssemblyAttributes.cs" />
+    <Compile Include="obj\Debug\netcoreapp3.1\Ecommerce.Service.AssemblyInfo.cs" />
+    <Compile Include="obj\Release\netcoreapp3.1\.NETCoreApp,Version=v3.1.AssemblyAttributes.cs" />
+    <Compile Include="obj\Release\netcoreapp3.1\Ecommerce.Service.AssemblyInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="bin\Debug\netcoreapp3.1\Ecommerce.Service.deps.json" />
+    <Content Include="obj\Debug\netcoreapp3.1\Ecommerce.Service.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Ecommerce.Service.csproj.nuget.dgspec.json" />
+    <Content Include="obj\project.assets.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="bin\Debug\netcoreapp3.1\Ecommerce.Common.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Ecommerce.Common.pdb" />
+    <None Include="bin\Debug\netcoreapp3.1\Ecommerce.Domain.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Ecommerce.Domain.pdb" />
+    <None Include="bin\Debug\netcoreapp3.1\Ecommerce.Repository.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Ecommerce.Repository.pdb" />
+    <None Include="bin\Debug\netcoreapp3.1\Ecommerce.Service.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Ecommerce.Service.pdb" />
+    <None Include="obj\Debug\netcoreapp3.1\Ecommerce.Service.AssemblyInfoInputs.cache" />
+    <None Include="obj\Debug\netcoreapp3.1\Ecommerce.Service.assets.cache" />
+    <None Include="obj\Debug\netcoreapp3.1\Ecommerce.Service.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\netcoreapp3.1\Ecommerce.Service.csprojAssemblyReference.cache" />
+    <None Include="obj\Ecommerce.Service.csproj.nuget.g.props" />
+    <None Include="obj\Ecommerce.Service.csproj.nuget.g.targets" />
+    <None Include="obj\project.nuget.cache" />
+    <None Include="obj\Release\netcoreapp3.1\Ecommerce.Service.AssemblyInfoInputs.cache" />
+    <None Include="obj\Release\netcoreapp3.1\Ecommerce.Service.assets.cache" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Ecommerce.Domain\Ecommerce.Domain.csproj" />
     <ProjectReference Include="..\Ecommerce.Repository\Ecommerce.Repository.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="bin\Release\netcoreapp3.1\" />
   </ItemGroup>
 
 </Project>
