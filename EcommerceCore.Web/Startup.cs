@@ -67,8 +67,8 @@ namespace EcommerceCore
             services.AddScoped<ICartServices, CartService>();
 
 
-            //services.AddScoped<IRoleReponsitory, RoleReponsitory>();
-            //services.AddScoped<IRoleServices, RoleService>();
+            services.AddScoped<IRoleReponsitory, RoleReponsitory>();
+            services.AddScoped<IRoleServices, RoleService>();
         }
     }
 }
