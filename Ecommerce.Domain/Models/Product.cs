@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
@@ -39,6 +40,9 @@ namespace Ecommerce.Domain.Models
         #endregion
 
         #region Relation
+        [DisplayName("Nhà sản xuất")]
+        public Guid ManufacturerId { get; set; }
+        public virtual Manufacturer Manufacturer { get; set; }
 
         [ForeignKey("Category")]
         public Guid CategoryId { get; set; }

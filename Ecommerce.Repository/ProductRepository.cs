@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using Ecommerce.Common.Infrastructure.ViewModel.Admin.ViewModel;
 using Ecommerce.Domain;
 using Ecommerce.Domain.Models;
 using Ecommerce.Repository.Interfaces;
@@ -16,7 +16,28 @@ namespace Ecommerce.Repository
         {
         }
 
-
+        public async Task<List<ProductAdminViewModel>> GetListProductAdminViewModel()
+        {
+            var listproduct = await (from p in DbContext.Products
+                                     join c in DbContext.Categories on p.CategoryId equals c.Id
+                                     join s in DbContext.Suppliers on p.SupplierId equals s.Id
+                                     join m in DbContext.Manufacturers on p.ManufacturerId equals m.Id
+                                     where p.IsDeleted == false
+                                     select new ProductAdminViewModel
+                                     {
+                                         Name = p.Name,
+                                         CategoryName = c.Name,
+                                         SupplierName = s.Name,
+                                         Price = p.Price,
+                                         Description = p.Description,
+                                         PublicationDate = p.PublicationDate,
+                                         Keyword = p.Keyword,
+                                         Sku = p.Sku,
+                                         Views = p.Views,
+                                         ManufacturerName = m.Name
+                                     }).ToListAsync();
+            return listproduct;
+        }
 
         public async Task<List<Product>> GetProductByCategoryIdAndOrderByView(Guid categoryId)
         {
@@ -45,5 +66,6 @@ namespace Ecommerce.Repository
 
             return false;
         }
+
     }
 }

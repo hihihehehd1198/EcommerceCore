@@ -20,14 +20,14 @@ namespace Ecommerce.Repository
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
                 return null;
 
-            var user = DbContext.Users.SingleOrDefault(x => x.UserName == username);
+            var user = DbContext.Users.SingleOrDefault(x => x.Username == username);
 
             // check if username exists
             if (user == null)
                 return null;
 
             // check if password is correct
-            if (!AuthenUserHelper.VerifyPasswordHash(password, user.PassWordHash, user.PassWordSalt))
+            if (!AuthenUserHelper.VerifyPasswordHash(password, user.PasswordHash, user.PasswordSalt))
                 return null;
 
             // authentication successful
@@ -39,16 +39,16 @@ namespace Ecommerce.Repository
             if (string.IsNullOrWhiteSpace(password))
                 throw new Exception("Password is required");
 
-            if (DbContext.Users.Any(x => x.UserName == user.UserName))
-                throw new Exception("UserName \"" + user.UserName + "\" is already taken");
+            if (DbContext.Users.Any(x => x.Username == user.Username))
+                throw new Exception("UserName \"" + user.Username + "\" is already taken");
 
             byte[] passwordHash;
             byte[] passwordSalt;
 
             AuthenUserHelper.CreatePasswordHash(password, out passwordHash, out passwordSalt);
 
-            user.PassWordHash = passwordHash;
-            user.PassWordSalt = passwordSalt;
+            user.PasswordHash = passwordHash;
+            user.PasswordSalt = passwordSalt;
 
             DbContext.Users.Add(user);
             DbContext.SaveChanges();
@@ -63,17 +63,17 @@ namespace Ecommerce.Repository
             if (user == null)
                 throw new Exception("User not found");
 
-            if (userParam.UserName != user.UserName)
+            if (userParam.Username != user.Username)
             {
                 // username has changed so check if the new username is already taken
-                if (DbContext.Users.Any(x => x.UserName == userParam.UserName))
-                    throw new Exception("UserName " + userParam.UserName + " is already taken");
+                if (DbContext.Users.Any(x => x.Username == userParam.Username))
+                    throw new Exception("UserName " + userParam.Username + " is already taken");
             }
 
             // update user properties
             user.FirstName = userParam.FirstName;
             user.LastName = userParam.LastName;
-            user.UserName = userParam.UserName;
+            user.Username = userParam.Username;
 
             // update password if it was entered
             if (!string.IsNullOrWhiteSpace(password))
@@ -81,8 +81,8 @@ namespace Ecommerce.Repository
                 byte[] passwordHash, passwordSalt;
                 AuthenUserHelper.CreatePasswordHash(password, out passwordHash, out passwordSalt);
 
-                user.PassWordHash = passwordHash;
-                user.PassWordSalt = passwordSalt;
+                user.PasswordHash = passwordHash;
+                user.PasswordSalt = passwordSalt;
             }
 
             DbContext.Users.Update(user);

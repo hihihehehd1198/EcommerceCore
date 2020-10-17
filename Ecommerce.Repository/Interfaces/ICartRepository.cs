@@ -1,4 +1,5 @@
-﻿using Ecommerce.Domain.Models;
+﻿using Ecommerce.Common.Infrastructure.ViewModel.Admin;
+using Ecommerce.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;

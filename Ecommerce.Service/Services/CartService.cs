@@ -1,4 +1,5 @@
-﻿using Ecommerce.Domain.Models;
+﻿using Ecommerce.Common.Infrastructure.ViewModel.Admin;
+using Ecommerce.Domain.Models;
 using Ecommerce.Repository.Interfaces;
 using Ecommerce.Service.Interface;
 using Ecommerce.Service.ViewModels;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Ecommerce.Service.Services
 {
-    public class CartService : ConfigService<Cart>, ICartServices
+    public class CartService : EcommerceServices<Cart>, ICartServices
     {
         private readonly ICartRepository _cartReponsitory;
 
@@ -18,9 +19,7 @@ namespace Ecommerce.Service.Services
             _cartReponsitory = cartReponsitory;
            
         }
-        public Task<CartViewModel> GetNewCart()
-        {
-            throw new NotImplementedException();
-        }
+
+  
     }
 }

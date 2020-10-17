@@ -23,9 +23,11 @@ namespace Ecommerce.Service.Services
             throw new System.NotImplementedException();
         }
 
-        public async Task<ICollection<CategoryViewModel>> GetCategoryParrent()
+        public Task<ICollection<CategoryViewModel>> GetCategoryParrent()
         {
             throw new System.NotImplementedException();
         }
+
+       
     }
 }
