@@ -8,15 +8,15 @@ using Ecommerce.Service.Interface;
 
 namespace Ecommerce.Service.Services
 {
-    public class RoleService : ConfigService<Role>, IRoleServices
+    public class RoleService : EcommerceService<Role>, IRoleServices
     {
-        private readonly IRoleRepository _roleReponsitory;
+        private readonly IRoleRepository _roleRepository;
         private readonly IMapper _mapper;
 
 
-        public RoleService(IRoleRepository roleReponsitory, IMapper mapper) : base(roleReponsitory)
+        public RoleService(IRoleRepository roleRepository, IMapper mapper) : base(roleRepository)
         {
-            _roleReponsitory = roleReponsitory;
+            _roleRepository = roleRepository;
             _mapper = mapper;
         }
     }

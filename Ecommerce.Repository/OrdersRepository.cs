@@ -112,29 +112,29 @@ namespace Ecommerce.Repository
             throw new NotImplementedException();
         }
 
-        IQueryable<TransactionHistory> IRepository<TransactionHistory>.GetAll()
-        {
-            throw new NotImplementedException();
-        }
+        //IQueryable<TransactionHistory> IRepository<TransactionHistory>.GetAll()
+        //{
+        //    throw new NotImplementedException();
+        //}
 
-        Task<IQueryable<TransactionHistory>> IRepository<TransactionHistory>.GetAllAsync()
-        {
-            throw new NotImplementedException();
-        }
+        //Task<IQueryable<TransactionHistory>> IRepository<TransactionHistory>.GetAllAsync()
+        //{
+        //    throw new NotImplementedException();
+        //}
 
-        TransactionHistory IRepository<TransactionHistory>.GetById(Guid Id)
-        {
-            throw new NotImplementedException();
-        }
+        //TransactionHistory IRepository<TransactionHistory>.GetById(Guid Id)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
-        Task<TransactionHistory> IRepository<TransactionHistory>.GetByIdAsync(Guid id)
-        {
-            throw new NotImplementedException();
-        }
+        //Task<TransactionHistory> IRepository<TransactionHistory>.GetByIdAsync(Guid id)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
-        Task<ICollection<TransactionHistory>> IOrdersRepository.GetOrdersParrent()
-        {
-            throw new NotImplementedException();
-        }
+        //Task<ICollection<TransactionHistory>> IOrdersRepository.GetOrdersParrent()
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

@@ -9,36 +9,36 @@ using Ecommerce.Service.Interface;
 
 namespace Ecommerce.Service.Services
 {
-    public class UserService : ConfigService<User>, IUserService
+    public class UserService : EcommerceService<User>, IUserService
     {
-        private readonly IUserRepository _userReponsitory;
+        private readonly IUserRepository _userRepository;
         private readonly IMapper _mapper;
-        public UserService(IUserRepository userReponsitory, IMapper mapper) : base(userReponsitory)
+        public UserService(IUserRepository userRepository, IMapper mapper) : base(userRepository)
         {
-            _userReponsitory = userReponsitory;
+            _userRepository = userRepository;
             _mapper = mapper;
         }
 
         public User Authenticate(string username, string password)
         {
-            return _userReponsitory.Authenticate(username, password);
+            return _userRepository.Authenticate(username, password);
         }
 
         public User Create(UserDto userDto, string password)
         {
             var user = _mapper.Map<User>(userDto);
-            return _userReponsitory.Create(user, password);
+            return _userRepository.Create(user, password);
         }
 
         public void Delete(Guid id)
         {
-            _userReponsitory.Delete(id);
+            _userRepository.Delete(id);
         }
 
         public void Update(UserDto userDto, string password = null)
         {
             var user = _mapper.Map<User>(userDto);
-            _userReponsitory.Update(user, password);
+            _userRepository.Update(user, password);
         }
     }
 }

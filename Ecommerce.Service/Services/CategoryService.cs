@@ -9,13 +9,15 @@ using Ecommerce.Service.ViewModels;
 
 namespace Ecommerce.Service.Services
 {
-    public class CategoryService : ConfigService<Category>, ICategoryService
+    public class CategoryService : EcommerceService<Category>, ICategoryService
     {
-        private readonly ICategoryReponsitory _categoryReponsitory;       
+        private readonly ICategoryRepository _categoryRepository;
+        //private readonly IMapper _mapper;
 
-        public CategoryService(ICategoryReponsitory categoryReponsitory) : base(categoryReponsitory)
+        public CategoryService(ICategoryRepository categoryRepository) : base(categoryRepository)
         {
-            _categoryReponsitory = categoryReponsitory;           
+            _categoryRepository = categoryRepository;
+            //_mapper = mapper;
         }
 
         public Task<CategoryViewModel> GetCategoryForHomepage()
@@ -25,7 +27,10 @@ namespace Ecommerce.Service.Services
 
         public Task<ICollection<CategoryViewModel>> GetCategoryParrent()
         {
+            //var category = await _categoryRepository.GetCategoryParrent();
+            //return _mapper.Map<List<CategoryViewModel>>(category);
             throw new System.NotImplementedException();
+
         }
 
        

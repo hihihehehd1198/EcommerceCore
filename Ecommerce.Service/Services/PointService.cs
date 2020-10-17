@@ -14,13 +14,13 @@ using System.Linq;
 
 namespace Ecommerce.Service.Services
 {
-    public class PointService : Services<Point>, IPointService
+    public class PointService : EcommerceService<Point>, IPointService
     {
-        private readonly IPointRepository _pointReponsitory;
+        private readonly IPointRepository _pointRepository;
         private readonly IMapper _mapper;
-        public PointService(IPointRepository pointReponsitory, IMapper mapper) : base(pointReponsitory)
+        public PointService(IPointRepository pointRepository, IMapper mapper) : base(pointRepository)
         {
-            _pointReponsitory = pointReponsitory;
+            _pointRepository = pointRepository;
             _mapper = mapper;
         }
 

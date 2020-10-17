@@ -10,55 +10,55 @@ using Ecommerce.Repository.Interfaces;
 
 namespace Ecommerce.Service.Services
 {
-    public class ConfigService<T> :  IServices<T> where T : class
+    public class EcommerceService<T> : IServices<T> where T : class
     {
-        private readonly IRepository<T> _baseReponsitory;
+        private readonly IRepository<T> _baseRepository;
 
-        public ConfigService(IRepository<T> baseReponsitory)
+        public EcommerceService(IRepository<T> baseRepository)
         {
-            _baseReponsitory = baseReponsitory;
+            _baseRepository = baseRepository;
         }
 
         #region Async
 
         public async Task<ICollection<T>> FindAllAsync(Expression<Func<T, bool>> match)
         {
-           return await _baseReponsitory.FindAllAsync(match);
+            return await _baseRepository.FindAllAsync(match);
         }
 
         public async Task<T> FindAsync(Expression<Func<T, bool>> match)
         {
-            return await _baseReponsitory.FindAsync(match);
+            return await _baseRepository.FindAsync(match);
         }
 
         public async Task<T> GetByIdAsync(Guid id)
         {
-            return await _baseReponsitory.GetByIdAsync(id);
+            return await _baseRepository.GetByIdAsync(id);
         }
 
         public async Task<IQueryable<T>> GetAllAsync()
         {
-            return await _baseReponsitory.GetAllAsync();
+            return await _baseRepository.GetAllAsync();
         }
 
         public async Task<T> AddAsync(T entity, bool isSave = true)
         {
-            return await _baseReponsitory.AddAsync(entity, isSave);
+            return await _baseRepository.AddAsync(entity, isSave);
         }
 
         public async Task<bool> AddManyAsync(IEnumerable<T> entities)
         {
-            return await _baseReponsitory.AddManyAsync(entities);
+            return await _baseRepository.AddManyAsync(entities);
         }
 
         public async Task UpdateAsync(T entity, bool isSave = true)
         {
-             await _baseReponsitory.UpdateAsync(entity, isSave);
+            await _baseRepository.UpdateAsync(entity, isSave);
         }
 
         public async Task DeleteAsync(T entity, bool isSave)
         {
-            await _baseReponsitory.DeleteAsync(entity, isSave);
+            await _baseRepository.DeleteAsync(entity, isSave);
         }
 
         #endregion
@@ -67,22 +67,22 @@ namespace Ecommerce.Service.Services
 
         public T GetById(Guid id)
         {
-            return _baseReponsitory.GetById(id);
+            return _baseRepository.GetById(id);
         }
 
         public IQueryable<T> GetAll()
         {
-            return _baseReponsitory.GetAll();
+            return _baseRepository.GetAll();
         }
 
         public T Find(Expression<Func<T, bool>> match)
         {
-            return _baseReponsitory.Find(match);
+            return _baseRepository.Find(match);
         }
 
         public ICollection<T> FindAll(Expression<Func<T, bool>> match)
         {
-            return _baseReponsitory.FindAll(match);
+            return _baseRepository.FindAll(match);
         }
 
         public T Get(Guid id)
