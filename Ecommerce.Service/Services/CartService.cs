@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+﻿using Ecommerce.Common.Infrastructure.ViewModel.Admin;
 using Ecommerce.Domain.Models;
 using Ecommerce.Repository.Interfaces;
 using Ecommerce.Service.Interface;
@@ -10,20 +10,16 @@ using System.Threading.Tasks;
 
 namespace Ecommerce.Service.Services
 {
-    public class CartService : EcommerceService<Cart>, ICartServices
+    public class CartService : EcommerceServices<Cart>, ICartServices
     {
-        private readonly ICartRepository _cartRepository;
-        //private readonly IMapper _mapper;
+        private readonly ICartRepository _cartReponsitory;
 
-        public CartService(ICartRepository cartRepository) : base(cartRepository)
+        public CartService(ICartRepository cartReponsitory) : base(cartReponsitory)
         {
-            _cartRepository = cartRepository;
-            //_mapper = mapper;
+            _cartReponsitory = cartReponsitory;
+           
+        }
 
-        }
-        public Task<CartViewModel> GetNewCart()
-        {
-            throw new NotImplementedException();
-        }
+  
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
+using Ecommerce.Common.Infrastructure.ViewModel.Admin.ViewModel;
 using Ecommerce.Domain.Models;
 
 namespace Ecommerce.Repository.Interfaces
@@ -10,8 +10,8 @@ namespace Ecommerce.Repository.Interfaces
     {
         Task<List<Product>> GetProductByCategoryIdAndOrderByView(Guid categoryId);
         Task<bool> GrowUpViewByProductId(Guid productId);
-        // Lấy ra những sản phẩm hot trend (Lượt xem nhiều nhất và số lượng mua nhiều nhất)
-        
+        //lay ra danh sach product
+        Task<List<ProductAdminViewModel>> GetListProductAdminViewModel();
     } 
    
 }

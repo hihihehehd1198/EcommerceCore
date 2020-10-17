@@ -78,17 +78,11 @@ namespace Ecommerce.Domain.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2");
 
-                    b.Property<decimal>("FeeAmount")
-                        .HasColumnType("decimal(18,2)");
-
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<int>("Number")
+                    b.Property<int>("ShoppingNumber")
                         .HasColumnType("int");
-
-                    b.Property<Guid>("PromotionId")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
@@ -105,16 +99,7 @@ namespace Ecommerce.Domain.Migrations
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<decimal>("VoucherAmount")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("VoucherCode")
-                        .HasColumnType("nvarchar(7)")
-                        .HasMaxLength(7);
-
                     b.HasKey("Id");
-
-                    b.HasIndex("PromotionId");
 
                     b.HasIndex("UserId");
 
@@ -143,9 +128,6 @@ namespace Ecommerce.Domain.Migrations
                     b.Property<bool>("IsDisplayHomePage")
                         .HasColumnType("bit");
 
-                    b.Property<Guid>("LanguageId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(55)")
@@ -167,8 +149,6 @@ namespace Ecommerce.Domain.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("LanguageId");
 
                     b.ToTable("Categories");
                 });
@@ -306,11 +286,15 @@ namespace Ecommerce.Domain.Migrations
                     b.ToTable("HistoryDetails");
                 });
 
-            modelBuilder.Entity("Ecommerce.Domain.Models.Language", b =>
+            modelBuilder.Entity("Ecommerce.Domain.Models.Manufacturer", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("CodeName")
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
 
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
@@ -319,16 +303,21 @@ namespace Ecommerce.Domain.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2");
 
-                    b.Property<bool>("IsDefault")
-                        .HasColumnType("bit");
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256);
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
+                    b.Property<string>("Logo")
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256);
+
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(20)")
-                        .HasMaxLength(20);
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
@@ -339,9 +328,13 @@ namespace Ecommerce.Domain.Migrations
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Website")
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256);
+
                     b.HasKey("Id");
 
-                    b.ToTable("Languages");
+                    b.ToTable("Manufacturers");
                 });
 
             modelBuilder.Entity("Ecommerce.Domain.Models.OrderDetails", b =>
@@ -542,6 +535,9 @@ namespace Ecommerce.Domain.Migrations
                         .HasColumnType("nvarchar(128)")
                         .HasMaxLength(128);
 
+                    b.Property<Guid>("ManufacturerId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(255)")
@@ -590,6 +586,8 @@ namespace Ecommerce.Domain.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
+
+                    b.HasIndex("ManufacturerId");
 
                     b.HasIndex("SupplierId");
 
@@ -876,6 +874,7 @@ namespace Ecommerce.Domain.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasColumnType("nvarchar(255)")
                         .HasMaxLength(255);
 
@@ -887,10 +886,12 @@ namespace Ecommerce.Domain.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(255)")
                         .HasMaxLength(255);
 
                     b.Property<string>("Phone")
+                        .IsRequired()
                         .HasColumnType("nvarchar(30)")
                         .HasMaxLength(30);
 
@@ -978,7 +979,7 @@ namespace Ecommerce.Domain.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("TransactionHistories");
+                    b.ToTable("TransactionHistory");
                 });
 
             modelBuilder.Entity("Ecommerce.Domain.Models.User", b =>
@@ -987,6 +988,12 @@ namespace Ecommerce.Domain.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Avatar")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
 
@@ -994,28 +1001,30 @@ namespace Ecommerce.Domain.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("FirstName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(256)")
                         .HasMaxLength(256);
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<Guid?>("LanguageId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("LastLoginDate")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("LastName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(256)")
                         .HasMaxLength(256);
 
-                    b.Property<byte[]>("PassWordHash")
+                    b.Property<byte[]>("PasswordHash")
                         .HasColumnType("varbinary(max)");
 
-                    b.Property<byte[]>("PassWordSalt")
+                    b.Property<byte[]>("PasswordSalt")
                         .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("Phone")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("RoleId")
                         .HasColumnType("uniqueidentifier");
@@ -1029,14 +1038,12 @@ namespace Ecommerce.Domain.Migrations
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("UserName")
+                    b.Property<string>("Username")
                         .IsRequired()
                         .HasColumnType("nvarchar(256)")
                         .HasMaxLength(256);
 
                     b.HasKey("Id");
-
-                    b.HasIndex("LanguageId");
 
                     b.HasIndex("RoleId");
 
@@ -1095,8 +1102,8 @@ namespace Ecommerce.Domain.Migrations
 
             modelBuilder.Entity("Ecommerce.Domain.Models.CardDetails", b =>
                 {
-                    b.HasOne("Ecommerce.Domain.Models.Cart", "Card")
-                        .WithMany("CardDetails")
+                    b.HasOne("Ecommerce.Domain.Models.Cart", "Cart")
+                        .WithMany()
                         .HasForeignKey("CartId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1110,24 +1117,9 @@ namespace Ecommerce.Domain.Migrations
 
             modelBuilder.Entity("Ecommerce.Domain.Models.Cart", b =>
                 {
-                    b.HasOne("Ecommerce.Domain.Models.Promotion", "Promotion")
-                        .WithMany()
-                        .HasForeignKey("PromotionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Ecommerce.Domain.Models.User", "User")
-                        .WithMany("Carts")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Ecommerce.Domain.Models.Category", b =>
-                {
-                    b.HasOne("Ecommerce.Domain.Models.Language", "Language")
                         .WithMany()
-                        .HasForeignKey("LanguageId")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -1141,7 +1133,7 @@ namespace Ecommerce.Domain.Migrations
                         .IsRequired();
 
                     b.HasOne("Ecommerce.Domain.Models.User", "User")
-                        .WithMany("Comments")
+                        .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1186,7 +1178,7 @@ namespace Ecommerce.Domain.Migrations
                         .IsRequired();
 
                     b.HasOne("Ecommerce.Domain.Models.User", "User")
-                        .WithMany("Orders")
+                        .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1195,7 +1187,7 @@ namespace Ecommerce.Domain.Migrations
             modelBuilder.Entity("Ecommerce.Domain.Models.Point", b =>
                 {
                     b.HasOne("Ecommerce.Domain.Models.User", "User")
-                        .WithMany("Points")
+                        .WithMany()
                         .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1206,6 +1198,12 @@ namespace Ecommerce.Domain.Migrations
                     b.HasOne("Ecommerce.Domain.Models.Category", "Category")
                         .WithMany("Products")
                         .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Ecommerce.Domain.Models.Manufacturer", "Manufacturer")
+                        .WithMany("Products")
+                        .HasForeignKey("ManufacturerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -1234,7 +1232,7 @@ namespace Ecommerce.Domain.Migrations
                         .IsRequired();
 
                     b.HasOne("Ecommerce.Domain.Models.User", "User")
-                        .WithMany("ProductRatings")
+                        .WithMany()
                         .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1273,7 +1271,7 @@ namespace Ecommerce.Domain.Migrations
                         .IsRequired();
 
                     b.HasOne("Ecommerce.Domain.Models.User", "User")
-                        .WithMany("TransactionHistories")
+                        .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1281,10 +1279,6 @@ namespace Ecommerce.Domain.Migrations
 
             modelBuilder.Entity("Ecommerce.Domain.Models.User", b =>
                 {
-                    b.HasOne("Ecommerce.Domain.Models.Language", null)
-                        .WithMany("Users")
-                        .HasForeignKey("LanguageId");
-
                     b.HasOne("Ecommerce.Domain.Models.Role", "Role")
                         .WithMany("Users")
                         .HasForeignKey("RoleId")
@@ -1295,7 +1289,7 @@ namespace Ecommerce.Domain.Migrations
             modelBuilder.Entity("Ecommerce.Domain.Models.UserProfile", b =>
                 {
                     b.HasOne("Ecommerce.Domain.Models.User", "User")
-                        .WithMany("UserProfiles")
+                        .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

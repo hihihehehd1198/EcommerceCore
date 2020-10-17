@@ -25,12 +25,14 @@ namespace Ecommerce.Service.Services
             throw new System.NotImplementedException();
         }
 
-        public async Task<ICollection<CategoryViewModel>> GetCategoryParrent()
+        public Task<ICollection<CategoryViewModel>> GetCategoryParrent()
         {
             //var category = await _categoryRepository.GetCategoryParrent();
             //return _mapper.Map<List<CategoryViewModel>>(category);
             throw new System.NotImplementedException();
 
         }
+
+       
     }
 }

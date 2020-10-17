@@ -9,6 +9,11 @@ namespace Ecommerce.Domain
         {
         }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseLazyLoadingProxies();
+        }
+
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Supplier> Suppliers { get; set; }
@@ -22,7 +27,7 @@ namespace Ecommerce.Domain
         public DbSet<OrderDetails> OrderDetails { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Config> Configs { get; set; }
-        public DbSet<Language> Languages { get; set; }
+       // public DbSet<Language> Languages { get; set; }
         public DbSet<Point> Points { get; set; }
         public DbSet<ProductRating> ProductRatings { get; set; }
         public DbSet<Role> Roles { get; set; }
@@ -30,5 +35,6 @@ namespace Ecommerce.Domain
         public DbSet<HistoryDetail> HistoryDetails { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<UserProfile> UserProfiles { get; set; }
+        public DbSet<Manufacturer> Manufacturers { get; set; }
     }
 }

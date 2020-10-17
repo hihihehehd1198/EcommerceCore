@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Ecommerce.Domain;
 using Ecommerce.Repository;
 using Ecommerce.Repository.Interfaces;
+using Ecommerce.Service;
 using Ecommerce.Service.Interface;
 using Ecommerce.Service.Services;
 using Microsoft.AspNetCore.Builder;
@@ -62,11 +63,22 @@ namespace Ecommerce.Web
         private void ConfigureCoreAndRepositoryService(IServiceCollection services)
         {
             services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
-            services.AddScoped(typeof(IServices<>), typeof(EcommerceService<>));
+            services.AddScoped(typeof(IServices<>), typeof(ConfigService<>));
+
             services.AddScoped<ICartRepository, CartRepository>();
             services.AddScoped<ICartServices, CartService>();
-            services.AddScoped<ICategoryRepository, CategoryRepository>();
+
+            services.AddScoped<ICategoryReponsitory, CategoryReponsitory>();
             services.AddScoped<ICategoryService, CategoryService>();
+
+            services.AddScoped<IProductSevice, ProductService>();
+            services.AddScoped<IProductRepository, ProductRepository>();
+
+            services.AddScoped<ISupplierServices, SupplierService>();
+            services.AddScoped<ISupplierRepository, SupplierRepository>();
+
+            services.AddScoped<ICartDetailsServices, CartDetailsServices>();
+            services.AddScoped<ICartDetailsRepository, CartDetailsRepository>();
 
             //services.AddScoped<IRoleReponsitory, RoleReponsitory>();
             //services.AddScoped<IRoleServices, RoleService>();

@@ -17,7 +17,7 @@ namespace Ecommerce.Core.ViewModels
         {
             // case get data
             CreateMap<Category, CategoryViewModel>();
-            CreateMap<Product, ProductViewModel>();
+            //CreateMap<Product, ProductViewModel>();
             CreateMap<User, UserDto>();
         }
 

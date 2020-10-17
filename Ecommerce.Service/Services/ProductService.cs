@@ -1,52 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿
+using Ecommerce.Common.Infrastructure.ViewModel;
+using Ecommerce.Common.Infrastructure.ViewModel.Admin.ViewModel;
 using Ecommerce.Domain.Models;
 using Ecommerce.Repository;
 using Ecommerce.Repository.Interfaces;
 using Ecommerce.Service.Interface;
 using Ecommerce.Service.ViewModels;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Ecommerce.Service.Services
 {
-    public class ProductService : EcommerceService<Product>, IProductSevice
+    public class ProductService : EcommerceServices<Product>,IProductSevice
     {
-        private readonly IProductRepository _productRepository;
-        private readonly IMapper _mapper;
+        private readonly IProductRepository _productReponsitory;
 
-        public ProductService(IProductRepository productRepository, IMapper mapper) : base(productRepository)
+        public ProductService(IProductRepository productReponsitory) : base(productReponsitory)
         {
-            _productRepository = productRepository;
-            _mapper = mapper;
-            this._productRepository = productRepository;
+            _productReponsitory = productReponsitory;
         }
 
-        public Task<ProductViewModel> GetDiscountProduct()
+        public async Task<List<ProductAdminViewModel>> GetListProduct()
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<ProductViewModel> GetHotTrendProduct()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<ProductViewModel> GetNewProduct()
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<List<ProductViewModel>> GetProductByCategoryIdAndOrderByView(Guid categoryId)
-        {
-            var product = await _productRepository.GetProductByCategoryIdAndOrderByView(categoryId);
-            return _mapper.Map<List<ProductViewModel>>(product);
-        }
-
-        public async Task<bool> GrowUpViewByProductId(Guid productId)
-        {
-            return await _productRepository.GrowUpViewByProductId(productId);
+            return await _productReponsitory.GetListProductAdminViewModel();
         }
     }
 }
